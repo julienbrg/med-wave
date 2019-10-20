@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+
+
+    app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        container_name: medwave-app
+        restart: always
+        volumes:
+            - ./:/home/app
+            - '/home/app/node_modules'
+        ports:
+            - '3001:3000'
+        command: 'npm start'
+
